@@ -1,23 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import TaskForm from "./components/TaskForm";
+import NavBar from "./components/NavBar";
+import About from "./components/About";
+import TaskModal from "./components/TaskModal";
+import { useState } from "react";
+import Task from "./components/Task"
 
 function App() {
+  const [show, setShow] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <TaskForm />
+      <button onClick={() => setShow(true)}>Show Modal</button>
+      <Task onClose={() =>setShow(false)} show={show} />
     </div>
   );
 }
