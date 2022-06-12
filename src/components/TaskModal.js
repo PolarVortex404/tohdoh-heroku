@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./TaskModal.module.css";
+import styles from "../styles/Task.module.css";
 
 const TaskModal = (props) => {
   if (!props.show) {

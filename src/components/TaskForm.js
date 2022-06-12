@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import StarRating from "./StarRating";
 import axios from "axios";
-import styles from "./TaskForm.module.css";
+import styles from "../styles/TaskForm.module.css";
 
 let TaskForm = (props) => {
   const [title, setTitle] = useState("");

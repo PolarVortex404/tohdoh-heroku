@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./Task.module.css";
+import styles from "../styles/Task.module.css";
 import StarRating from "./StarRating";
 import axios from "axios";
 

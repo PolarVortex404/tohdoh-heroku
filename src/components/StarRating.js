@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 const StarRating = (props) => {
-  const [rating, setRating] = useState(0);
+  // const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
 
   const handleClick = (index) => {

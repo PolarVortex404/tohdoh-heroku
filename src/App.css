@@ -29,10 +29,12 @@ input {
 }
 button {
   margin: 5px;
-  background-color: transparent;
-  border: none;
-  outline: none;
+  padding: 7px;
+  background-color: #1785a35d;
+  /* border: none;
+  outline: none; */
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .on {

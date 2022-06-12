@@ -67,4 +67,23 @@ router.put("/:taskId", (req, res) => {
   });
 });
 
-module.exports = router;
+router.delete(`/:taskId`,(req,res)=>{
+  console.log('deleting task')
+  Task.findByPk(req.params.taskId).then((task) => {
+    if (!task) {
+      return res.status(404).send({
+        message: "Task not found",
+      });
+    }
+    task.delete()
+    .then((task)=>{
+      res.status(200).send(task)
+    })
+    .catch((error) =>{
+      res.status(400).send(error)
+    })
+  })
+})
+
+
+module.exports = router
