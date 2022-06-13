@@ -1,4 +1,7 @@
 import React from "react";
+import { AuthenticationButton } from "./buttons/authentication-button";
+import { ProtectedRoute } from "./ProtectedRoute"
+import {Link} from 'react-router-dom'
 
 const NavBar = () => {
   return (
@@ -9,16 +12,21 @@ const NavBar = () => {
       <div className="navigation-menu">
         <ul>
           <li>
-            <a href="/home">Home</a>
+            <Link to="/Home">Home</Link>
           </li>
           <li>
-            <a href="/about">About</a>
+            <Link to="/About">About</Link>
           </li>
           <li>
-            <a href="/settings">Setting</a>
+           <Link to='/Settings'>Profile</Link>
           </li>
           <li>
-            <a href="/donations">Donations?</a>
+            <Link to="/Donations">Donations?</Link>
+    
+          </li>
+          <li>
+            <AuthenticationButton />
+    
           </li>
         </ul>
       </div>

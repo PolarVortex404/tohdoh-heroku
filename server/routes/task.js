@@ -4,13 +4,20 @@ const Skip = require("../models").Skip;
 const User = require("../models").User;
 const Task = require("../models").Task;
 
+const { checkJwt } = require("../middleware/check-jwt.middleware");
+const {
+  checkPermissions,
+} = require("../middleware/check-permissions.middleware");
+
 router.use((req, res, next) => {
   console.log("Time: ", Date.now());
   next();
 });
 
-router.post("/", (res, req) => {
+router.post("/", checkJwt, (req, res) => {
   console.log("Creating a task");
+  console.log(req)
+  console.log(req.user)
   Task.create(
     {
       user_id: req.body.user_id,
@@ -40,7 +47,7 @@ router.post("/", (res, req) => {
     });
 });
 
-router.put("/:taskId", (req, res) => {
+router.put("/:taskId", checkJwt, (req, res) => {
   console.log("Updating task");
   Task.findByPk(req.params.taskId).then((task) => {
     if (!task) {
@@ -67,23 +74,23 @@ router.put("/:taskId", (req, res) => {
   });
 });
 
-router.delete(`/:taskId`,(req,res)=>{
-  console.log('deleting task')
+router.delete(`/:taskId`, checkJwt, (req, res) => {
+  console.log("deleting task");
   Task.findByPk(req.params.taskId).then((task) => {
     if (!task) {
       return res.status(404).send({
         message: "Task not found",
       });
     }
-    task.delete()
-    .then((task)=>{
-      res.status(200).send(task)
-    })
-    .catch((error) =>{
-      res.status(400).send(error)
-    })
-  })
-})
+    task
+      .delete()
+      .then((task) => {
+        res.status(200).send(task);
+      })
+      .catch((error) => {
+        res.status(400).send(error);
+      });
+  });
+});
 
-
-module.exports = router
+module.exports = router;
