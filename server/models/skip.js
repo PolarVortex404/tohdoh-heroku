@@ -10,10 +10,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Skip.belongsTo(models.User, {
-        foreignKey: 'user_id',
-        as: 'user'
-      }),
+      // Skip.belongsTo(models.User, {
+      //   foreignKey: 'user_id',
+      //   as: 'user'
+      // }),
       Skip.belongsTo(models.Task, {
         foreignKey: 'task_id',
         as: 'task'

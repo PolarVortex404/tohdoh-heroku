@@ -14,7 +14,7 @@ const Home = () => {
           pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
           culpa qui officia deserunt mollit anim id est laborum.
           <br /> <br />
-          <button>Login</button>
+          {/* <button>Login</button> */}
         </article>
       </div>
     </div>

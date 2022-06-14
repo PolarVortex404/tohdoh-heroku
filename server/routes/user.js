@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const User = require("../models").User;
+// const User = require("../models").User;
 const Skip = require("../models").Skip;
 const Task = require("../models").Task;
 
 const { Op } = require("sequelize");
 const skip = require("../models/skip");
-const user = require("../models/user");
+// const user = require("../models/user");
 
 router.use((req, res, next) => {
   console.log("Time: ", Date.now());
@@ -17,38 +17,38 @@ router.get("/", (res, req) => {
   console.log("verifying login info");
 });
 
-router.get("/:userId/tasks", (req, res) => {
-  console.log("getting all tasks for user");
-  Task.findAll({
-    where: {
-      user_id: {
-        [Op.eq]: req.params.userId,
-      },
-    },
-  })
-    .then((tasks) => {
-      res.status(200).send(tasks);
-    })
-    .catch((error) => {
-      res.status(400).send(error);
-    });
-});
-router.get("/:userId/skips", (req, res) => {
-  console.log("getting all skips for user");
-  Skip.findAll({
-    where: {
-      user_id: {
-        [Op.eq]: req.params.userId,
-      },
-    },
-  })
-    .then((skips) => {
-      res.status(200).send(skips);
-    })
-    .catch((error) => {
-      res.status(400).send(error);
-    });
-});
+// router.get("/:userId/tasks", (req, res) => {
+//   console.log("getting all tasks for user");
+//   Task.findAll({
+//     where: {
+//       user_id: {
+//         [Op.eq]: req.params.userId,
+//       },
+//     },
+//   })
+//     .then((tasks) => {
+//       res.status(200).send(tasks);
+//     })
+//     .catch((error) => {
+//       res.status(400).send(error);
+//     });
+// });
+// router.get("/:userId/skips", (req, res) => {
+//   console.log("getting all skips for user");
+//   Skip.findAll({
+//     where: {
+//       user_id: {
+//         [Op.eq]: req.params.userId,
+//       },
+//     },
+//   })
+//     .then((skips) => {
+//       res.status(200).send(skips);
+//     })
+//     .catch((error) => {
+//       res.status(400).send(error);
+//     });
+// });
 
 router.post("/", (res, req) => {
   console.log("registering user");

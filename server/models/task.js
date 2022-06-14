@@ -8,10 +8,10 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Task.belongsTo(models.User, {
-        foreignKey: "user_id",
-        as: "user",
-      }),
+      // Task.belongsTo(models.User, {
+      //   foreignKey: "user_id",
+      //   as: "user",
+      // }),
         Task.hasMany(models.Skip, {
           foreignKey: "task_id",
           as: "skips",
@@ -24,7 +24,8 @@ module.exports = (sequelize, DataTypes) => {
       description: DataTypes.STRING,
       star_rating: DataTypes.INTEGER,
       deadline: DataTypes.DATE,
-      user_id: DataTypes.INTEGER,
+      user_id: DataTypes.STRING,
+      //changed above line from .INTEGER to .STRING as 
       estimated_duration: DataTypes.INTEGER,
       time_spent: DataTypes.INTEGER,
       complete_date: DataTypes.DATE,

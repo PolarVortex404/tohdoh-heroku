@@ -3,12 +3,14 @@ import styles from "../styles/Task.module.css";
 import StarRating from "./StarRating";
 import axios from "axios";
 
+import { ServerApi } from "../hooks/ServerApi";
+
 let Task = (props) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [estimatedDuration, setEstimatedDuration] = useState(0);
   const [difficulty, setDifficulty] = useState(0);
-
+const { createTask } = ServerApi()
   const handleSubmit = (e) => {
     e.preventDefault();
     const task = {
@@ -17,9 +19,11 @@ let Task = (props) => {
       estimated_duration: estimatedDuration,
       star_rating: difficulty,
     };
-    axios.post("/tasks", { task }).then((res) => {
-      console.log("task submitted");
-    });
+
+    createTask(task)
+    // axios.post("/tasks", { task }).then((res) => {
+    //   console.log("task submitted");
+    // });
     props.onClose();
   };
   if (!props.show) {

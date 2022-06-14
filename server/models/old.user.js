@@ -11,14 +11,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      User.hasMany(models.Task, {
-        foreignKey: 'user_id',
-        as: 'tasks'
-      }),
-      User.hasMany(models.Skip, {
-        foreignKey: 'user_id',
-        as: 'skips'
-      })
+      // User.hasMany(models.Task, {
+      //   foreignKey: 'user_id',
+      //   as: 'tasks'
+      // }),
+      // User.hasMany(models.Skip, {
+      //   foreignKey: 'user_id',
+      //   as: 'skips'
+      // })
     }
   }
   User.init({

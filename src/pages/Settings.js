@@ -3,7 +3,9 @@ import TaskItem from "../components/TaskItem";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useEnv } from "../context/env.context";
+import StarRating from "../components/StarRating";
 // import Home from "./Home";
+import styles from "../styles/Settings.module.css";
 
 const Settings = (props) => {
   const { getAccessTokenSilently } = useAuth0();
@@ -22,7 +24,7 @@ const Settings = (props) => {
     //     baseURL:apiServerUrl
     //   }
     // );
-    console.log('calling server')
+    console.log("calling server");
     await axios({
       url: "/tasks",
       baseURL: apiServerUrl,
@@ -43,8 +45,18 @@ const Settings = (props) => {
       <container>
         <button onClick={handleTest}>TEST</button>
         {props.tasks?.map((task) => {
-          return 
-          <TaskItem task={task} /> ;
+          return (
+            <div>
+              {/* <TaskItem task={task} /> */}
+              <div className={styles.displayFlex}>
+                <h1>Task</h1>
+                <div>
+                  <p>description text text text</p>
+                  <StarRating />
+                </div>
+              </div>
+            </div>
+          );
         })}
       </container>
     </div>

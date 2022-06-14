@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Skip = require("../models").Skip;
-const User = require("../models").User;
+// const User = require("../models").User;
 const Task = require("../models").Task;
 
 const { checkJwt } = require("../middleware/check-jwt.middleware");
@@ -14,13 +14,30 @@ router.use((req, res, next) => {
   next();
 });
 
+router.get("/",checkJwt,   (req, res) => {
+  console.log("getting all tasks for user");
+  Task.findAll({
+    where: {
+      user_id: {
+        [Op.eq]: req.user.sub,
+      },
+    },
+  })
+    .then((tasks) => {
+      res.status(200).send(tasks);
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
+});
+
 router.post("/", checkJwt, (req, res) => {
   console.log("Creating a task");
-  console.log(req)
-  console.log(req.user)
+  // console.log(req)
+  // console.log(req.user)
   Task.create(
     {
-      user_id: req.body.user_id,
+      user_id: req.user.sub,
       title: req.body.title,
       description: req.body.description,
       star_rating: req.body.star_rating,
@@ -30,14 +47,14 @@ router.post("/", checkJwt, (req, res) => {
       complete_date: req.body.complete_date,
       frequency: req.body.frequency,
     },
-    {
-      include: [
-        {
-          model: User,
-          as: "user",
-        },
-      ],
-    }
+    // {
+      // include: [
+      //   {
+      //     model: User,
+      //     as: "user",
+      //   },
+      // ],
+    // }
   )
     .then((task) => {
       res.status(200).send(task);
@@ -57,7 +74,7 @@ router.put("/:taskId", checkJwt, (req, res) => {
     }
     task
       .update({
-        user_id: req.body.user_id || task.user_id,
+        // user_id: req.body.user_id || task.user_id,
         title: req.body.title || task.title,
         description: req.body.description || task.description,
         star_rating: req.body.star_rating || task.star_rating,
