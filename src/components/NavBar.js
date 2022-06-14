@@ -1,9 +1,11 @@
 import React from "react";
 import { AuthenticationButton } from "./buttons/authentication-button";
-import { ProtectedRoute } from "./ProtectedRoute"
-import {Link} from 'react-router-dom'
+import { ProtectedRoute } from "./ProtectedRoute";
+import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 const NavBar = () => {
+  const { isAuthenticated } = useAuth0();
   return (
     <nav className="navigation">
       <a href="/" className="tohdoh">
@@ -17,16 +19,16 @@ const NavBar = () => {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>
-           <Link to='/Settings'>Profile</Link>
-          </li>
+          {isAuthenticated && (
+            <li>
+              <Link to="/Settings">Profile</Link>
+            </li>
+          )}
           <li>
             <Link to="/Donations">Donations?</Link>
-    
           </li>
           <li>
             <AuthenticationButton />
-    
           </li>
         </ul>
       </div>
@@ -34,4 +36,4 @@ const NavBar = () => {
   );
 };
 
-export default NavBar; 
+export default NavBar;
