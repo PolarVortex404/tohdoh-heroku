@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import TaskItem from "../components/TaskItem";
 import axios from "axios";
 import { useAuth0 } from "@auth0/auth0-react";
@@ -7,9 +7,29 @@ import StarRating from "../components/StarRating";
 // import Home from "./Home";
 import styles from "../styles/Settings.module.css";
 
+import { ServerApi } from "../hooks/ServerApi";
+
 const Settings = (props) => {
-  const { getAccessTokenSilently } = useAuth0();
+  const { getAccessTokenSilently, isAuthenticated } = useAuth0();
   const { apiServerUrl } = useEnv();
+  const { getTasks } = ServerApi();
+  const [tasks, setTasks] = useState([]);
+
+  useEffect(() => {
+    const getMyTasks = async () => {
+      let data = await getTasks();
+      console.log(tasks, "tasks");
+      setTasks(data);
+      console.log(data, "data");
+    };
+    if (isAuthenticated) {
+      getMyTasks();
+
+      // setTasks(await getTasks());
+      // console.log(tasks)
+      // getSkips();
+    }
+  }, [isAuthenticated]);
 
   let handleTest = async () => {
     const token = await getAccessTokenSilently();
@@ -42,16 +62,20 @@ const Settings = (props) => {
 
   return (
     <div className="settingsContainer">
+      <h1>PROFILE</h1>
+      <div>
+        count
+        {tasks.count}
+      </div>
       <container>
         <button onClick={handleTest}>TEST</button>
-        {props.tasks?.map((task) => {
+        {tasks?.map((task) => {
           return (
             <div>
-              {/* <TaskItem task={task} /> */}
               <div className={styles.displayFlex}>
-                <h1>Task</h1>
+                <h1>{task.title}</h1>
                 <div>
-                  <p>description text text text</p>
+                  <p>{task.description}</p>
                   <StarRating />
                 </div>
               </div>

@@ -2,9 +2,10 @@ import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import { ProtectedRoute } from "./components/ProtectedRoute";
-import { withAuthenticationRequired } from "@auth0/auth0-react";
+import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 
-import {tasks} from './hooks/ServerApi'
+// import {tasks} from './hooks/ServerApi'
+import { ServerApi } from "./hooks/ServerApi";
 
 //pages
 // import TaskForm from "./components/TaskForm";
@@ -18,12 +19,22 @@ import { Loader } from "./components/loader";
 import Task from "./components/Task";
 
 // import TaskModal from "./components/TaskModal.old";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import TaskItem from "./components/TaskItem";
-import { getByTitle } from "@testing-library/react";
+//import { getByTitle } from "@testing-library/react";
 
 function App() {
   const [show, setShow] = useState(false);
+  const { isAuthenticated } = useAuth0();
+  const { getTasks, getSkips } = ServerApi();
+  useEffect(() => {
+    if (isAuthenticated) {
+      getTasks();
+      getSkips();
+    }
+  },
+  [isAuthenticated]
+  );
   return (
     <div className="App">
       <NavBar />
@@ -36,7 +47,12 @@ function App() {
         <Route path="/about" element={<About />} />
       </Routes>
       {/* <Home /> */}
-      <Settings tasks={[{title: "Clear E-mail", description: "Lorem Ipsum"},{title: "Clear E-mail", description: "Lorem Ipsum"}]} />
+      {/* <Settings
+        tasks={[
+          { title: "Clear E-mail", description: "Lorem Ipsum" },
+          { title: "Clear E-mail", description: "Lorem Ipsum" },
+        ]}
+      /> */}
       <TaskItem task={{ title: "Clear E-mail", description: "Lorem Ipsum" }} />
       {/* <TaskForm /> */}
       <button onClick={() => setShow(true)}>Show Modal</button>

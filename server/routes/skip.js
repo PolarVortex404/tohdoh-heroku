@@ -7,6 +7,8 @@ const Skip = require("../models").Skip;
 // const User = require("../models").User;
 const Task = require("../models").Task;
 
+const { Sequelize, Op } = require("sequelize");
+
 //Json Web Token for auth0
 const { checkJwt } = require("../middleware/check-jwt.middleware");
 const {

@@ -53,8 +53,9 @@ export const ServerApi = () => {
     };
 
     const data = await makeRequest({ config });
-
+console.log(data)
     setTasks(data);
+    return data;
   };
 
   const getSkips = async () => {
@@ -89,7 +90,7 @@ export const ServerApi = () => {
       data: task,
     };
 
-    const data = await makeRequest({ config });
+    await makeRequest({ config });
     // const updatedTasks = tasks
     // updatedTasks.push(data)
     setTasks(await getTasks);
@@ -128,11 +129,11 @@ export const ServerApi = () => {
       },
     };
 
-    const data = await makeRequest({ config });
+  await makeRequest({ config });
 
     setTasks(
       tasks.filter((item) => {
-        return item.id != task.id;
+        return item.id !== task.id;
       })
     );
   };

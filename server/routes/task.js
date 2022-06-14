@@ -4,6 +4,8 @@ const Skip = require("../models").Skip;
 // const User = require("../models").User;
 const Task = require("../models").Task;
 
+const { Sequelize, Op } = require("sequelize");
+
 const { checkJwt } = require("../middleware/check-jwt.middleware");
 const {
   checkPermissions,
@@ -14,7 +16,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/",checkJwt,   (req, res) => {
+router.get("/", checkJwt, (req, res) => {
   console.log("getting all tasks for user");
   Task.findAll({
     where: {
@@ -46,14 +48,14 @@ router.post("/", checkJwt, (req, res) => {
       time_spent: req.body.time_spent,
       complete_date: req.body.complete_date,
       frequency: req.body.frequency,
-    },
+    }
     // {
-      // include: [
-      //   {
-      //     model: User,
-      //     as: "user",
-      //   },
-      // ],
+    // include: [
+    //   {
+    //     model: User,
+    //     as: "user",
+    //   },
+    // ],
     // }
   )
     .then((task) => {

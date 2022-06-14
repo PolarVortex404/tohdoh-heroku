@@ -1,7 +1,11 @@
 .displayFlex {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid black;
-    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid black;
 }
+/* .container {
+  margin: 30px;
+  max-width: fit-content;
+  padding: 30px;
+} */
