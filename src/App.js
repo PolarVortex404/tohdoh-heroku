@@ -53,7 +53,7 @@ function App() {
           { title: "Clear E-mail", description: "Lorem Ipsum" },
         ]}
       /> */}
-      <TaskItem task={{ title: "Clear E-mail", description: "Lorem Ipsum" }} />
+      {/* <TaskItem/> */}
       {/* <TaskForm /> */}
       <button onClick={() => setShow(true)}>Show Modal</button>
       <Task onClose={() => setShow(false)} show={show} />
