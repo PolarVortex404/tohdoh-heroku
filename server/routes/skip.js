@@ -20,7 +20,7 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get("/", checkJwt,  (req, res) => {
+router.get("/", checkJwt, (req, res) => {
   console.log("getting all skips for user");
   Skip.findAll({
     where: {
@@ -37,24 +37,12 @@ router.get("/", checkJwt,  (req, res) => {
     });
 });
 
-router.post("/",checkJwt, (req, res) => {
+router.post("/", checkJwt, (req, res) => {
   console.log("creating a skip");
   Skip.create(
     {
       user_id: req.user.sub,
       task_id: req.body.task_id,
-    },
-    {
-      include: [
-        {
-          model: User,
-          as: "user",
-        },
-        {
-          model: Task,
-          as: "task",
-        },
-      ],
     }
   )
     .then((skip) => {

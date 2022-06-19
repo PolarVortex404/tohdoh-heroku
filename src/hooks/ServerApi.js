@@ -24,8 +24,8 @@ export const ServerApi = () => {
     try {
       const token = await getAccessTokenSilently();
 
-      options.config.headers.Authorization = `Bearer ${token}`
-     
+      options.config.headers.Authorization = `Bearer ${token}`;
+
       const response = await axios(options.config);
       const { data } = response;
 
@@ -53,7 +53,7 @@ export const ServerApi = () => {
     };
 
     const data = await makeRequest({ config });
-console.log(data)
+    console.log(data);
     setTasks(data);
     return data;
   };
@@ -129,7 +129,7 @@ console.log(data)
       },
     };
 
-  await makeRequest({ config });
+    await makeRequest({ config });
 
     setTasks(
       tasks.filter((item) => {
@@ -155,6 +155,11 @@ console.log(data)
     const updatedSkips = skips;
     updatedSkips.push(data);
     setSkips(updatedSkips);
+    const task = tasks.filter((task) => task.id === skip.task_id)[0];
+
+    task.skips.push(data);
+
+    setTasks(tasks);
   };
 
   // const getProtectedResource = async () => {

@@ -3,9 +3,18 @@ import { useAuth0 } from "@auth0/auth0-react";
 import Welcome from "./Welcome";
 import GameTime from "./GameTime";
 
-const Home = () => {
+const Home = (props) => {
   const { isAuthenticated } = useAuth0();
-  return isAuthenticated ? <GameTime /> : <Welcome />;
+  return isAuthenticated ? (
+    <GameTime
+      tasks={props.tasks}
+      createSkip={props.createSkip}
+      updateTask={props.updateTask}
+      createTask={props.createTask}
+    />
+  ) : (
+    <Welcome />
+  );
 };
 
 export default Home;

@@ -24,6 +24,10 @@ router.get("/", checkJwt, (req, res) => {
         [Op.eq]: req.user.sub,
       },
     },
+    include: {
+      model: Skip,
+      as: "skips",
+    },
   })
     .then((tasks) => {
       res.status(200).send(tasks);

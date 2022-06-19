@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StarRating = (props) => {
   // const [rating, setRating] = useState(0);
@@ -10,8 +11,10 @@ const StarRating = (props) => {
   };
 
   return (
-    
     <div className="star-rating">
+      <head>
+      <script src="https://kit.fontawesome.com/3e427e60db.js" crossorigin="anonymous"></script>
+      </head>
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (
@@ -23,7 +26,11 @@ const StarRating = (props) => {
             onMouseEnter={() => setHover(index)}
             onMouseLeave={() => setHover(props.rating)}
           >
-            <span className="star">&#9733;</span>;
+            <span className="star">
+            <i>
+            <FontAwesomeIcon icon="fa-solid fa-star" />
+            </i>
+              </span>
           </button>
         );
       })}

@@ -10,7 +10,7 @@ let Task = (props) => {
   const [description, setDescription] = useState("");
   const [estimatedDuration, setEstimatedDuration] = useState(0);
   const [difficulty, setDifficulty] = useState(0);
-const { createTask } = ServerApi()
+// const { createTask } = ServerApi()
   const handleSubmit = (e) => {
     e.preventDefault();
     const task = {
@@ -20,7 +20,7 @@ const { createTask } = ServerApi()
       star_rating: difficulty,
     };
 
-    createTask(task)
+    props.createTask(task)
     // axios.post("/tasks", { task }).then((res) => {
     //   console.log("task submitted");
     // });

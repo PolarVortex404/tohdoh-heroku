@@ -24,9 +24,9 @@ import TaskItem from "./components/TaskItem";
 //import { getByTitle } from "@testing-library/react";
 
 function App() {
-  const [show, setShow] = useState(false);
+  
   const { isAuthenticated } = useAuth0();
-  const { getTasks, getSkips } = ServerApi();
+  const { getTasks, getSkips, tasks, createSkip, updateTask, createTask } = ServerApi();
   useEffect(() => {
     if (isAuthenticated) {
       getTasks();
@@ -39,7 +39,7 @@ function App() {
     <div className="App">
       <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home tasks={tasks} createSkip={createSkip} updateTask={updateTask} createTask={createTask} />} />
         <Route
           path="/settings"
           element={<ProtectedRoute component={Settings} />}
@@ -55,8 +55,7 @@ function App() {
       /> */}
       {/* <TaskItem/> */}
       {/* <TaskForm /> */}
-      <button onClick={() => setShow(true)}>Show Modal</button>
-      <Task onClose={() => setShow(false)} show={show} />
+      
     </div>
   );
 }
