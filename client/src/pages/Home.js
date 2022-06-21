@@ -6,7 +6,7 @@ import Welcome from "./Welcome";
 import GameTime from "./GameTime";
 
 //components
-import Modal from "../components/DeleteModal";
+import DeleteModal from "../components/DeleteModal.js";
 
 const Home = (props) => {
   const { isAuthenticated } = useAuth0();
