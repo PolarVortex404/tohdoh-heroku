@@ -2,6 +2,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const express = require("express");
 const helmet = require("helmet");
+const path = require('path')
 
 dotenv.config();
 
@@ -34,10 +35,20 @@ app.use(
 app.use("/tasks", task);
 app.use("/skips", skip);
 
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+// app.get("/", (req, res) => {
+//   res.send("hello world");
+// });
+
+app.use(express.static(path.join(__dirname, '../client/build')
+
+))
+
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname+'/../client/build/index.html'))
+})
+
 
 app.listen(PORT, () => {
   console.log(`server is running on ${PORT}`);
 });
+
