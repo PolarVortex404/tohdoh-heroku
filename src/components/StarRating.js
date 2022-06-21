@@ -16,11 +16,6 @@ const StarRating = (props) => {
 
   return (
     <div className={styles.starRating}>
-      {/* <script
-        src="https://kit.fontawesome.com/3e427e60db.js"
-        crossorigin="anonymous"
-      ></script> */}
-
       {[...Array(5)].map((star, index) => {
         index += 1;
         return (

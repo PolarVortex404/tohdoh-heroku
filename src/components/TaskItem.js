@@ -1,7 +1,7 @@
 import React from "react";
-import Task from "./Task";
+
 import StarRating from "./StarRating";
-import axios from "axios";
+
 //skeleton outline for each individual task or on client side - GOAL
 
 const TaskItem = (props) => {

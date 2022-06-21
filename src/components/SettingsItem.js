@@ -1,18 +1,14 @@
 import { React, useState } from "react";
 
 //components
-import DeleteModal from "../components/DeleteModal";
 import DeleteButton from "./buttons/DeleteButton";
-import StarRating from "./StarRating";
 import ReadOnlyStarRating from "./ReadOnlyStarRating";
 
 //styles
 import styles from "../styles/SettingsItem.module.css";
-import EditButton from "./buttons/EditButton";
 //icons
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { hover } from "@testing-library/user-event/dist/hover";
 
 const SettingsItem = (props) => {
   const [bounce, setBounce] = useState(false);
@@ -38,7 +34,6 @@ const SettingsItem = (props) => {
               size="3x"
               onMouseEnter={() => setBounce(true)}
               onMouseLeave={() => setBounce(false)}
-              
             />
           )}
         </div>
@@ -52,11 +47,6 @@ const SettingsItem = (props) => {
             {props.deleteTask && (
               <DeleteButton task={props.task} deleteTask={props.deleteTask} />
             )}
-
-            {/* <EditButton
-            task={props.task}
-            updateTask={props.updateTask}
-            /> */}
           </div>
         </div>
       </div>

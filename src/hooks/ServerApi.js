@@ -3,19 +3,9 @@ import axios from "axios";
 import { useState } from "react";
 import { useEnv } from "../context/env.context";
 
-// export const AccessControlLevel = {
-//   PUBLIC: "public",
-//   PROTECTED: "requires-authentication",
-//   RBAC: "requires-role-permission",
-//   CORS: "requires-cors-allowed-method",
-// };
-
 export const ServerApi = () => {
   const [tasks, setTasks] = useState([]);
   const [skips, setSkips] = useState([]);
-
-  // const [selectedAccessControlLevel, setSelectedAccessControlLevel] =
-  //   useState(null);
 
   const { getAccessTokenSilently } = useAuth0();
   const { apiServerUrl } = useEnv();
@@ -40,10 +30,6 @@ export const ServerApi = () => {
   };
 
   const getTasks = async () => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/tasks`,
       method: "GET",
@@ -59,10 +45,6 @@ export const ServerApi = () => {
   };
 
   const getSkips = async () => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/skips`,
       method: "GET",
@@ -77,10 +59,6 @@ export const ServerApi = () => {
   };
 
   const updateTask = async (task) => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/tasks/${task.id}`,
       method: "PUT",
@@ -91,16 +69,11 @@ export const ServerApi = () => {
     };
 
     await makeRequest({ config });
-    // const updatedTasks = tasks
-    // updatedTasks.push(data)
+
     setTasks(await getTasks);
   };
 
   const createTask = async (task) => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/tasks`,
       method: "POST",
@@ -117,10 +90,6 @@ export const ServerApi = () => {
   };
 
   const deleteTask = async (task) => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/tasks/${task.id}`,
       method: "DELETE",
@@ -138,10 +107,6 @@ export const ServerApi = () => {
     );
   };
   const createSkip = async (skip) => {
-    // setSelectedAccessControlLevel(AccessControlLevel.PUBLIC);
-
-    // setApiEndpoint("GET /api/messages/public");
-
     const config = {
       url: `${apiServerUrl}/skips`,
       method: "POST",
@@ -161,61 +126,6 @@ export const ServerApi = () => {
 
     setTasks(tasks);
   };
-
-  // const getProtectedResource = async () => {
-  //   setSelectedAccessControlLevel(AccessControlLevel.PROTECTED);
-
-  //   setApiEndpoint("GET /api/messages/protected");
-
-  //   const config = {
-  //     url: `${apiServerUrl}/api/messages/protected`,
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //   };
-
-  //   const data = await makeRequest({ config, authenticated: true });
-
-  //   setApiResponse(JSON.stringify(data, null, 2));
-  // };
-
-  // const getRbacResource = async () => {
-  //   setSelectedAccessControlLevel(AccessControlLevel.RBAC);
-
-  //   setApiEndpoint("GET /api/messages/admin");
-
-  //   const config = {
-  //     url: `${apiServerUrl}/api/messages/admin`,
-  //     method: "GET",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //   };
-
-  //   const data = await makeRequest({ config, authenticated: true });
-
-  //   setApiResponse(JSON.stringify(data, null, 2));
-  // };
-
-  // const checkCorsAllowedMethod = async () => {
-  //   setSelectedAccessControlLevel(AccessControlLevel.CORS);
-
-  //   setApiEndpoint("DELETE /api/messages/public");
-
-  //   const config = {
-  //     url: `${apiServerUrl}/api/messages/public`,
-  //     method: "DELETE",
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //   };
-
-  //   const data = await makeRequest({ config, authenticated: true });
-
-  //   setApiResponse(JSON.stringify(data, null, 2));
-  // };
-
   return {
     tasks,
     getTasks,

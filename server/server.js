@@ -7,7 +7,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 4000;
-const { user, task, skip } = require("./routes");
+const {  task, skip } = require("./routes");
 
 app.use(express.json());
 app.use(express.urlencoded());
@@ -31,7 +31,6 @@ app.use(
 app.use(
   cors()
 );
-app.use("/users", user);
 app.use("/tasks", task);
 app.use("/skips", skip);
 

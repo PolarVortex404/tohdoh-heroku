@@ -18,19 +18,15 @@
   padding: 10px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
-  /* box-shadow: rgba(3, 33, 68, 0.829); */
 }
 
-/* style for the modal window*/
 .modalContent {
   width: 500px;
   border-radius: 13px;
-  /* background-color: #fff; */
   background-color: #e5e9ec;
 }
 .taskForm {
   border-radius: 15px;
-  /* background-color: #343b6fc2; */
 
   background-color: #493661c6;
   cursor: pointer;
@@ -53,7 +49,6 @@
 }
 .formDescription {
   padding: 0px;
-  /* width: min 200px; */
   min-width: 200px;
   min-height: 36px;
   border-radius: 4px;
@@ -64,9 +59,7 @@
 .flexContainer {
   display: flex;
   border-radius: 2px;
-  /* border-color: black; */
   column-gap: 9px;
-  /* background-color: #3C787E; */
 }
 
 .formEstimate {
@@ -102,7 +95,6 @@
 .sbButton {
   background-color: #7d5298ca;
   padding: 5px;
-  /* margin: auto; */
   border-radius: 4px;
   box-shadow: #00000072;
   cursor: pointer;

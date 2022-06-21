@@ -1,6 +1,5 @@
 import React from "react";
 import { AuthenticationButton } from "./buttons/authentication-button";
-import { ProtectedRoute } from "./ProtectedRoute";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 

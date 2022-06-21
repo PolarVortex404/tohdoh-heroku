@@ -15,13 +15,7 @@ const GameTime = (props) => {
   const [availableTime, setAvailableTime] = useState(0);
   const handleGoTime = () => {
     console.log(props.tasks);
-    // console.log(props.tasks[4].skips[0].createdAt);
-    // console.log(new Date(props.tasks[4].skips[0].createdAt).toDateString());
-    // let potentialTasks = props.tasks.filter(
-    //   (task) =>
-    //     task.skips?.filter((skip) =>
-    //     new Date(skip.createdAt).toDateString() === new Date().toDateString()).length === 0 && task.complete_date === null
-    // );
+
     let potentialTasks = props.tasks.filter(
       (task) => task.complete_date === null
     );
