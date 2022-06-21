@@ -19,7 +19,6 @@
 .list {
   list-style-type: none;
   text-align: left;
-  /* margin: auto; */
   margin-left: 20%;
   margin-right: 20%;
   font-weight: 400;
@@ -38,8 +37,7 @@
 .container {
   width: 100%;
   background-color: #99aa3857;
-  /* background-color: transparent; */
-  /* margin: auto; */
+
   height: 100vh;
   border: #0d1b1e;
   border-radius: 2px;
@@ -50,7 +48,7 @@
   margin-left: 130px;
 }
 .goTime {
-    margin-top: 15px;
+  margin-top: 15px;
   cursor: pointer;
   font-weight: 500;
   padding: 10px 18px;
@@ -73,7 +71,6 @@
   font-size: large;
   font-weight: 600;
   margin-right: 12px;
-  /* flex-direction: row-reverse; */
 }
 .timeInput {
   height: 25px;
@@ -82,5 +79,4 @@
   margin: 8px, 0;
   box-sizing: border-box;
   text-align: center;
-  
 }

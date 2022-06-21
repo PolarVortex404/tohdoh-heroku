@@ -7,16 +7,13 @@
   border: 2px solid rgba(0, 0, 0, 0.426);
   border-radius: 2px;
 }
-.settingsHeader{
+.settingsHeader {
   margin-top: 0;
   padding-top: 25px;
 }
 .container {
-  /* margin: 30px; */
   max-width: 100%;
   padding: 25px;
-  /* display: flex; */
-  /* flex-wrap: wrap; */
 
   justify-content: center;
   text-align: center;
@@ -25,23 +22,7 @@
   font-weight: 500;
 }
 
-/* .container:hover {
-  box-shadow: 0 10px 20px -10px rgba(155, 62, 78, 0.089);
-  transform: translateY(-5px);
-  background-color: #926b6f36;
-} */
-
 .settingsContainer {
-  /* display: flex; */
-  /* justify-content: center; */
   align-items: center;
-  /* vertical-align: baseline; */
   background-color: #99aa3851;
-}
-.settingsItemContainer {
- 
-  /* align-items: center; */
-}
-h1{
-  /* background-color: #99aa3851 ; */
 }
