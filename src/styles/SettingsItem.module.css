@@ -16,8 +16,16 @@
   font-weight: 500;
   background-color: #3c787ecd;
 }
+.done {
+  color: rgb(26, 255, 0);
+  /* padding: 15px; */
+display: flex;
+flex-direction: column;
+
+
+}
 .container {
-  /* margin: auto; */
+  margin-top: 0;
   /* padding: auto; */
   padding-left: 50px;
   padding-right: 50px;
@@ -33,6 +41,7 @@
   align-items: center;
 }
 
+ 
 .displayFlex:hover {
   box-shadow: 0 10px 20px -10px rgba(155, 62, 78, 0.089);
   transform: translateY(-5px);

@@ -42,6 +42,7 @@ let Task = (props) => {
               name="taskTitle"
               type="text"
               placeholder="Title"
+              required
               className={styles.formTitle}
               onChange={(e) => setTitle(e.target.value)}
             ></input>
@@ -66,6 +67,7 @@ let Task = (props) => {
                 <input
                   name="estimated_duration"
                   type="number"
+                  min="0"
                   onChange={(e) => setEstimatedDuration(e.target.value)}
                   placeholder="time in minutes"
                   className={styles.formEstimate}
@@ -81,18 +83,17 @@ let Task = (props) => {
 
             <br />
             <div className={styles.sbButton}>
-
-            <input
-              name="submitButton"
-              className={styles.submitBtn}
-              type="submit"
-              value="Submit"
+              <input
+                name="submitButton"
+                className={styles.submitBtn}
+                type="submit"
+                value="Submit"
               ></input>
-              </div>
+            </div>
           </form>
         </div>
         <div className={styles.modalFooter}>
-          <button onClick={props.onClose} className="closeModalBtn">
+          <button onClick={props.onClose} className={styles.closeModalBtn}>
             Close
           </button>
           <br />

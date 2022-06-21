@@ -32,7 +32,7 @@
   border-radius: 15px;
   /* background-color: #343b6fc2; */
 
-  background-color: #4936616f;
+  background-color: #493661c6;
   cursor: pointer;
 }
 
@@ -46,16 +46,17 @@
 
 .formTitle {
   min-width: 200px;
-  border-radius: 3px;
+  border-radius: 4px;
   box-shadow: inset;
   text-align: center;
-  height: fit-content;
+  height: 18px;
 }
 .formDescription {
   padding: 0px;
   /* width: min 200px; */
   min-width: 200px;
-  border-radius: 3px;
+  min-height: 36px;
+  border-radius: 4px;
   border-color: transparent;
   text-align: center;
 }
@@ -65,6 +66,7 @@
   border-radius: 2px;
   /* border-color: black; */
   column-gap: 9px;
+  /* background-color: #3C787E; */
 }
 
 .formEstimate {
@@ -92,19 +94,36 @@
   cursor: pointer;
 }
 .submitBtn:hover{
-  background-color: #d4b1ea;
-  padding: 8px;
-  margin: auto;
-  border-radius: 4px;
-  box-shadow: #00000072;
-  cursor: pointer;
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+    transform: translateY(-2px);
+    background: #c489e872;
 }
 
 .sbButton {
-  background-color: #492b5c3e;
+  background-color: #7d5298ca;
   padding: 5px;
   /* margin: auto; */
   border-radius: 4px;
   box-shadow: #00000072;
   cursor: pointer;
+}
+.closeModalBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: transparent;
+  color: #0d1b1e;
+  background: #3c787e0a;
+  transition: all 0.25s ease;
+  box-shadow: rgb(4, 5, 7);
+}
+
+.closeModalBtn:hover {
+  background: #3c787e32;
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+  transform: translateY(-10px);
+ 
+  border-color: #3c787e4c;
 }

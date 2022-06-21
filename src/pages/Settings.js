@@ -12,7 +12,9 @@ const Settings = (props) => {
   const { user } = useAuth0();
   return (
     <div className={styles.settingsContainer}>
-      <h1>Hi, {user.name}! </h1>
+      <h1
+      className={styles.settingsHeader}
+      >Hi, {user.name}! </h1>
       <br />
       <div>
         <aside>

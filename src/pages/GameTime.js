@@ -1,5 +1,10 @@
-import { faTasksAlt } from "@fortawesome/free-solid-svg-icons";
 import { React, useState } from "react";
+// import { act } from "react-dom/test-utils";
+
+import { faHourglass } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import SettingsItem from "../components/SettingsItem";
 import Task from "../components/Task";
 
 import styles from "../styles/GameTime.module.css";
@@ -54,48 +59,54 @@ const GameTime = (props) => {
   return (
     <div className={styles.container}>
       <div>
-        <div>
+        <br />
+        <div className={styles.listA}>How it works:</div>
+        <ul className={styles.list}>
+          <li>Create some tasks</li>
           <br />
-          <div
-          className={styles.listA}
-          >How it works:</div>
-          <ul className={styles.list}>
-            <li>Create some tasks</li>
-            <br />
-            <li>Enter the amount of time you have available</li>
-            <br />
-            <li>Hit "Go Time" to start</li>
-          </ul>
-        </div>
+          <li>Enter the amount of time you have available</li>
+          <br />
+          <li>Hit "Go Time" to start or "Create" to start from scratch</li>
+        </ul>
+      </div>
+      <div className={styles.createTaskContainer}>
+        <button className={styles.createTask} onClick={() => setShow(true)}>
+          Create
+        </button>
+        <Task
+          createTask={props.createTask}
+          onClose={() => setShow(false)}
+          show={show}
+        />
+      </div>
+      {!activeTask && !show && (
         <div>
-          <button className={styles.createTask} onClick={() => setShow(true)}>
-            Create Task
-          </button>
-          <Task
-            createTask={props.createTask}
-            onClose={() => setShow(false)}
-            show={show}
-          />
-        </div>
-        {!activeTask && (
+          <label className={styles.timeLabel}>
+            Time Available <FontAwesomeIcon icon={faHourglass} />
+          </label>
           <div>
-            <label>Time Available</label>
             <input
+              className={styles.timeInput}
               type="number"
+              min="0"
+              placeholder="time in minutes"
               onChange={(e) => {
                 setAvailableTime(e.target.value);
               }}
             ></input>
-            <button className={styles.createTask} onClick={handleGoTime}>
+          </div>
+          <div>
+            <button className={styles.goTime} onClick={handleGoTime}>
               GO TIME
             </button>
           </div>
-        )}
-      </div>
+        </div>
+      )}
+
       {activeTask && (
         <div>
           <div>
-            {activeTask?.title}
+            <SettingsItem task={activeTask} />
           </div>
           <button className={styles.createTask} onClick={handleSkip}>
             Skip
