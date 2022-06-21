@@ -62,11 +62,11 @@ const GameTime = (props) => {
           <br />
           <li>Hit "Go Time" to start or "Create" to start from scratch</li>
         </ul>
-      </div>
-      <div className={styles.createTaskContainer}>
-        <button className={styles.createTask} onClick={() => setShow(true)}>
+        <button className={styles.createButton} onClick={() => setShow(true)}>
           Create
         </button>
+      </div>
+      <div className={styles.createTaskContainer}>
         <Task
           createTask={props.createTask}
           onClose={() => setShow(false)}

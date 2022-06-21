@@ -14,8 +14,33 @@
 .createTask:hover {
   box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
   transform: translateY(-5px);
-  background: #3c787e;
 }
+
+.createButton {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 11px 18px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: transparent;
+  color: #E5E9EC;
+  background: #3c787e;
+  transition: all 0.25s ease;
+  box-shadow: #2c3e50;
+  margin-left: 50%;
+  margin-top: -10px;
+  background: #3c787e9a;
+
+}
+
+.createButton:hover {
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+  transform: translateY(-5px);
+  background: #3c787e;
+  
+}
+
+
 .list {
   list-style-type: none;
   text-align: left;
@@ -48,7 +73,7 @@
   margin-left: 130px;
 }
 .goTime {
-  margin-top: 15px;
+    margin-top: 15px;
   cursor: pointer;
   font-weight: 500;
   padding: 10px 18px;
@@ -79,4 +104,5 @@
   margin: 8px, 0;
   box-sizing: border-box;
   text-align: center;
+  
 }

@@ -1,6 +1,6 @@
 .darkBG {
   background-color: rgba(3, 4, 24, 0.847);
-  width: 100vh;
+  width: 100vw;
   height: 100vh;
   z-index: 0;
   top: 50%;
@@ -18,10 +18,11 @@
 
 .modal {
   width: 300px;
-  height: 170;
+  height: 170px;
   background-color: #e5e9ec;
   z-index: 10;
-  border-radius: 16px;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
 }
 
 .modalHeader {
@@ -71,25 +72,26 @@
   position: inherit;
   align-items: center, baseline;
 
-  padding-top: 8px;
+  padding-top: 18px;
   padding-left: 45px;
   padding-right: 45px;
   padding-bottom: 10px;
   column-gap: 10px;
 
-  background-color: #0d1b1ec2;
+  background-color: #0d1b1ef9;
   border-bottom-left-radius: 9px;
   border-bottom-right-radius: 9px;
   box-shadow: #0d1b1e;
 }
+
+
 
 .closeBtn {
   cursor: pointer;
   font-weight: 500;
   padding: 4px 8px;
   border-radius: 8px;
-  border: 3px;
-  border-color: #1399b73f;
+  border: transparent;
 
   font-size: 18px;
   color: #2c3e50;
@@ -116,7 +118,7 @@
   padding: 11px 28px;
   border-radius: 12px;
   font-size: 0.8rem;
-  border: none;
+  border: transparent;
   color: #fff;
   background: #ff3e4e;
   transition: all 0.25s ease;

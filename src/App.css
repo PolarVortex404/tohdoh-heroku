@@ -38,7 +38,7 @@ Link {
 }
 
 .on {
-  color: rgb(255, 234, 0);
+  color: #f7ff65;
 }
 .off {
   color: #ccc;
@@ -52,12 +52,15 @@ Link {
   display: flex;
   align-items: center;
   position: relative;
-  padding: 0.5rem 0rem;
   background-color: #3c787ed3;
   color: #010230;
   box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
-}
 
+}
+.navBarTohDoh{
+  padding: 0.5rem 0rem;
+  padding-left: 30px;
+}
 .navigation-menu {
   margin-left: auto;
 }
@@ -72,10 +75,15 @@ Link {
 
 .navigation li {
   list-style-type: none; 
-  margin: 0 1rem;
+  margin: .5rem 1rem;
+}
+
+.navbarLinks{
+  padding-top: 10px;
 }
 .navigation-menu li a {
   text-decoration: none;
   display: block;
   width: 100%;
 }
+
