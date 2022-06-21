@@ -1,0 +1,28 @@
+.displayFlex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+
+  border: 2px solid rgba(0, 0, 0, 0.426);
+  border-radius: 2px;
+}
+.settingsHeader {
+  margin-top: 0;
+  padding-top: 25px;
+}
+.container {
+  max-width: 100%;
+  padding: 25px;
+
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  row-gap: 50px;
+  font-weight: 500;
+}
+
+.settingsContainer {
+  align-items: center;
+  background-color: #99aa3851;
+}

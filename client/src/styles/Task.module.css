@@ -1,0 +1,121 @@
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d1b1e;
+  text-shadow: black;
+}
+.modalBody {
+  border: 1px;
+  border-color: transparent;
+  color: rgb(32, 51, 51);
+  padding: 10px;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.modalContent {
+  width: 500px;
+  border-radius: 13px;
+  background-color: #e5e9ec;
+}
+.taskForm {
+  border-radius: 15px;
+
+  background-color: #493661c6;
+  cursor: pointer;
+}
+
+.modalHeader {
+  margin: 0;
+}
+.modalFooter {
+  margin-block-start: 1.33rem;
+  background-color: transparent;
+}
+
+.formTitle {
+  min-width: 200px;
+  border-radius: 4px;
+  box-shadow: inset;
+  text-align: center;
+  height: 18px;
+}
+.formDescription {
+  padding: 0px;
+  min-width: 200px;
+  min-height: 36px;
+  border-radius: 4px;
+  border-color: transparent;
+  text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+  border-radius: 2px;
+  column-gap: 9px;
+}
+
+.formEstimate {
+  padding: 0px;
+  flex-direction: row-reverse;
+  row-gap: 100px;
+  height: 18px;
+  width: 22;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.formDate {
+  height: 19px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.submitBtn {
+  background-color: #d4b1ea;
+  padding: 8px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: #00000072;
+  cursor: pointer;
+}
+.submitBtn:hover{
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+    transform: translateY(-2px);
+    background: #c489e872;
+}
+
+.sbButton {
+  background-color: #7d5298ca;
+  padding: 5px;
+  border-radius: 4px;
+  box-shadow: #00000072;
+  cursor: pointer;
+}
+.closeModalBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: transparent;
+  color: #0d1b1e;
+  background: #3c787e0a;
+  transition: all 0.25s ease;
+  box-shadow: rgb(4, 5, 7);
+}
+
+.closeModalBtn:hover {
+  background: #3c787e32;
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+  transform: translateY(-10px);
+ 
+  border-color: #3c787e4c;
+}
