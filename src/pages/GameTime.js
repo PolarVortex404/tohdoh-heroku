@@ -2,7 +2,7 @@ import { faTasksAlt } from "@fortawesome/free-solid-svg-icons";
 import { React, useState } from "react";
 import Task from "../components/Task";
 
-import styles from "../styles/GameTime.module.css"
+import styles from "../styles/GameTime.module.css";
 
 const GameTime = (props) => {
   const [show, setShow] = useState(false);
@@ -23,7 +23,7 @@ const GameTime = (props) => {
     console.log("null complete date", potentialTasks);
     potentialTasks = potentialTasks.filter((task) => {
       return (
-        task.skips.filter(
+        task.skips?.filter(
           (skip) =>
             new Date(skip.createdAt).toDateString() ===
             new Date().toDateString()
@@ -52,11 +52,14 @@ const GameTime = (props) => {
     setActiveTask(null);
   };
   return (
-    <div>
+    <div className={styles.container}>
       <div>
         <div>
-          <h4>How it works:</h4>
-          <ul>
+          <br />
+          <div
+          className={styles.listA}
+          >How it works:</div>
+          <ul className={styles.list}>
             <li>Create some tasks</li>
             <br />
             <li>Enter the amount of time you have available</li>
@@ -65,31 +68,39 @@ const GameTime = (props) => {
           </ul>
         </div>
         <div>
-          <button 
-          className={styles.createTask}
-          onClick={() => setShow(true)}>Create Task</button>
+          <button className={styles.createTask} onClick={() => setShow(true)}>
+            Create Task
+          </button>
           <Task
             createTask={props.createTask}
             onClose={() => setShow(false)}
             show={show}
           />
         </div>
-        <label>Time Available</label>
-        <input
-          type="number"
-          onChange={(e) => {
-            setAvailableTime(e.target.value);
-          }}
-        ></input>
-        <button onClick={handleGoTime}>GO TIME</button>
+        {!activeTask && (
+          <div>
+            <label>Time Available</label>
+            <input
+              type="number"
+              onChange={(e) => {
+                setAvailableTime(e.target.value);
+              }}
+            ></input>
+            <button className={styles.createTask} onClick={handleGoTime}>
+              GO TIME
+            </button>
+          </div>
+        )}
       </div>
       {activeTask && (
         <div>
-          <div>{activeTask?.title}</div>
-          <button className="goButton" onClick={handleSkip}>
+          <div>
+            {activeTask?.title}
+          </div>
+          <button className={styles.createTask} onClick={handleSkip}>
             Skip
           </button>
-          <button className="goButton" onClick={handleDone}>
+          <button className={styles.createTask} onClick={handleDone}>
             Done
           </button>
         </div>

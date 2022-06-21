@@ -91,6 +91,15 @@
   box-shadow: #00000072;
   cursor: pointer;
 }
+.submitBtn:hover{
+  background-color: #d4b1ea;
+  padding: 8px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: #00000072;
+  cursor: pointer;
+}
+
 .sbButton {
   background-color: #492b5c3e;
   padding: 5px;

@@ -1,6 +1,7 @@
 .App {
   text-align: center;
   /* align-self: start; */
+  /* background-color: 0D1B1E; */
 }
 
 .App-link {
@@ -44,7 +45,7 @@ Link {
   color: #28a8cbab;
 }
 .navigation {
-  height: 75px;
+  height: 75%;
   width: 100%;
   display: flex;
   align-items: center;
