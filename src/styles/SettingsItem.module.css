@@ -1,0 +1,55 @@
+.displayFlex {
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  width: 50%;
+  max-width: 500px;
+  align-items: center;
+  border-color: transparent;
+
+  border-radius: 2px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  padding-bottom: 10px;
+  font-weight: 500;
+  background-color: #3c787ecd;
+}
+.container {
+  /* margin: auto; */
+  /* padding: auto; */
+  padding-left: 50px;
+  padding-right: 50px;
+  /* padding-top: 20px; */
+  /* padding-bottom: 10px; */
+  /* padding: 25px; */
+  /* display: flex; */
+  flex-wrap: wrap;
+
+  /* background-color: #b4f5fab7; */
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.displayFlex:hover {
+  box-shadow: 0 10px 20px -10px rgba(155, 62, 78, 0.089);
+  transform: translateY(-5px);
+  background-color: #3c787eb6;
+  border: 2px solid rgba(0, 0, 0, 0.19);
+}
+
+.settingsContainer {
+  align-items: center;
+}
+.settingsItemContainer {
+  /* align-items: center; */
+}
+.actionItems{
+  display: flex;
+  align-items: center;
+  /* column-gap: 50px; */
+
+  justify-content: space-around;
+}

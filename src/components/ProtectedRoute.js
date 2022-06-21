@@ -3,9 +3,9 @@ import React from "react";
 // import { Routes, Route, Navigate } from "react-router-dom";
 import { Loader } from "./loader";
 
-export const ProtectedRoute = ({ component }) => {
+export const ProtectedRoute = ({ component, ...propsForComponent }) => {
   const Component = withAuthenticationRequired(component, {
-    onRedirecting: () => <Loader />
+    // onRedirecting: () => <Loader />
   })
-return <Component />
+return <Component {...propsForComponent} />
 }

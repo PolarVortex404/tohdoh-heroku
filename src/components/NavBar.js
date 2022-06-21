@@ -4,13 +4,23 @@ import { ProtectedRoute } from "./ProtectedRoute";
 import { Link } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
+// const NavUnlisted = styled.ul`
+//   text-decoration: none;
+// `;
+
 const NavBar = () => {
   const { isAuthenticated } = useAuth0();
+
+  // const StyledLink = styled(Link)`
+  // color: Blue;
+  // text-decoration: none;
+  // margin: 1rem;
+  // position: relative;
+  // `
+
   return (
     <nav className="navigation">
-      <a href="/" className="tohdoh">
-        TohDoh
-      </a>
+      <Link to="/">TohDoh</Link>
       <div className="navigation-menu">
         <ul>
           <li>
@@ -24,9 +34,6 @@ const NavBar = () => {
               <Link to="/Settings">Profile</Link>
             </li>
           )}
-          <li>
-            <Link to="/Donations">Donations?</Link>
-          </li>
           <li>
             <AuthenticationButton />
           </li>

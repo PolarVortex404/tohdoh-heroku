@@ -8,7 +8,6 @@ import { withAuthenticationRequired, useAuth0 } from "@auth0/auth0-react";
 import { ServerApi } from "./hooks/ServerApi";
 
 //pages
-// import TaskForm from "./components/TaskForm";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Settings from "./pages/Settings";
@@ -17,6 +16,7 @@ import Settings from "./pages/Settings";
 import NavBar from "./components/NavBar";
 import { Loader } from "./components/loader";
 import Task from "./components/Task";
+import Modal from "./components/DeleteModal";
 
 // import TaskModal from "./components/TaskModal.old";
 import { useState, useEffect } from "react";
@@ -26,7 +26,7 @@ import TaskItem from "./components/TaskItem";
 function App() {
   
   const { isAuthenticated } = useAuth0();
-  const { getTasks, getSkips, tasks, createSkip, updateTask, createTask } = ServerApi();
+  const { getTasks, getSkips, tasks, createSkip, updateTask, createTask, deleteTask } = ServerApi();
   useEffect(() => {
     if (isAuthenticated) {
       getTasks();
@@ -42,7 +42,12 @@ function App() {
         <Route path="/" element={<Home tasks={tasks} createSkip={createSkip} updateTask={updateTask} createTask={createTask} />} />
         <Route
           path="/settings"
-          element={<ProtectedRoute component={Settings} />}
+          element={<ProtectedRoute 
+            component={Settings} 
+            tasks={tasks} 
+          deleteTask={deleteTask}
+          updateTask={updateTask}
+          />}
         />
         <Route path="/about" element={<About />} />
       </Routes>

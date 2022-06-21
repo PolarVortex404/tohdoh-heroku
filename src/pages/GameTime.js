@@ -2,6 +2,8 @@ import { faTasksAlt } from "@fortawesome/free-solid-svg-icons";
 import { React, useState } from "react";
 import Task from "../components/Task";
 
+import styles from "../styles/GameTime.module.css"
+
 const GameTime = (props) => {
   const [show, setShow] = useState(false);
   const [activeTask, setActiveTask] = useState(null);
@@ -51,16 +53,26 @@ const GameTime = (props) => {
   };
   return (
     <div>
-      <h1>Are you ready for this?</h1>
       <div>
         <div>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
+          <h4>How it works:</h4>
+          <ul>
+            <li>Create some tasks</li>
+            <br />
+            <li>Enter the amount of time you have available</li>
+            <br />
+            <li>Hit "Go Time" to start</li>
+          </ul>
+        </div>
+        <div>
+          <button 
+          className={styles.createTask}
+          onClick={() => setShow(true)}>Create Task</button>
+          <Task
+            createTask={props.createTask}
+            onClose={() => setShow(false)}
+            show={show}
+          />
         </div>
         <label>Time Available</label>
         <input
@@ -69,14 +81,6 @@ const GameTime = (props) => {
             setAvailableTime(e.target.value);
           }}
         ></input>
-        <div>
-          <button onClick={() => setShow(true)}>Create Task</button>
-          <Task
-            createTask={props.createTask}
-            onClose={() => setShow(false)}
-            show={show}
-          />
-        </div>
         <button onClick={handleGoTime}>GO TIME</button>
       </div>
       {activeTask && (

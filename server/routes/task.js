@@ -99,21 +99,15 @@ router.put("/:taskId", checkJwt, (req, res) => {
 
 router.delete(`/:taskId`, checkJwt, (req, res) => {
   console.log("deleting task");
-  Task.findByPk(req.params.taskId).then((task) => {
-    if (!task) {
-      return res.status(404).send({
-        message: "Task not found",
-      });
-    }
-    task
-      .delete()
-      .then((task) => {
-        res.status(200).send(task);
-      })
-      .catch((error) => {
-        res.status(400).send(error);
-      });
-  });
+  Task.destroy({
+    where: { id: req.params.taskId },
+  })
+    .then(() => {
+      res.status(200).send();
+    })
+    .catch((error) => {
+      res.status(400).send(error);
+    });
 });
 
 module.exports = router;
