@@ -69,8 +69,8 @@ export const ServerApi = () => {
     };
 
     await makeRequest({ config });
-
-    setTasks(await getTasks);
+    const tasks = await getTasks();
+    setTasks(tasks);
   };
 
   const createTask = async (task) => {

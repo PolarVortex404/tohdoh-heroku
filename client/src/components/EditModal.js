@@ -1,28 +1,35 @@
 import React, { useState } from "react";
 import styles from "../styles/Task.module.css";
 import StarRating from "./StarRating";
+import EditModalButton from "./buttons/EditModalButton";
 
-let Task = (props) => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
-  const [estimatedDuration, setEstimatedDuration] = useState(0);
-  const [difficulty, setDifficulty] = useState(0);
-  const [deadline, setDeadline] = useState(null);
+let EditModal = (props) => {
+  const [title, setTitle] = useState(props.task.title);
+  const [description, setDescription] = useState(props.task.description);
+  const [estimatedDuration, setEstimatedDuration] = useState(
+    props.task.estimated_duration
+  );
+  const [difficulty, setDifficulty] = useState(props.task.star_rating);
+  const [deadline, setDeadline] = useState(props.task.deadline);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const task = {
-      title: title,
-      description: description,
-      estimated_duration: estimatedDuration,
-      star_rating: difficulty,
-      deadline: deadline,
-    };
+    console.log("editing task");
 
-    props.createTask(task);
+    const task = props.task;
+    task.title = title;
+    task.description = description;
+    task.estimated_duration = estimatedDuration;
+    task.star_rating = difficulty;
+    task.deadline = deadline;
+
+    console.log("calling update");
+
+    props.updateTask(task);
 
     props.onClose();
   };
+
   if (!props.show) {
     return null;
   }
@@ -30,7 +37,7 @@ let Task = (props) => {
     <div className={styles.modal} onClick={props.onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
         <div className={styles.modalHeader}>
-          <h4 className={styles.modalTitle}>Set Goal</h4>
+          <h4 className={styles.modalTitle}>Edit Goal</h4>
         </div>
         <div className={styles.modalBody}>
           <form className={styles.taskForm} onSubmit={handleSubmit}>
@@ -38,8 +45,7 @@ let Task = (props) => {
             <input
               name="taskTitle"
               type="text"
-              placeholder="Title"
-              required
+              value={title}
               className={styles.formTitle}
               onChange={(e) => setTitle(e.target.value)}
             ></input>
@@ -48,6 +54,7 @@ let Task = (props) => {
             <textarea
               name="taskDesc"
               placeholder="Description"
+              value={description}
               className={styles.formDescription}
               onChange={(e) => setDescription(e.target.value)}
             ></textarea>
@@ -64,9 +71,9 @@ let Task = (props) => {
                 <input
                   name="estimated_duration"
                   type="number"
-                  min="0"
                   onChange={(e) => setEstimatedDuration(e.target.value)}
                   placeholder="time in minutes"
+                  value={estimatedDuration}
                   className={styles.formEstimate}
                 ></input>
               </div>
@@ -76,9 +83,9 @@ let Task = (props) => {
                 <br />
                 <input
                   className={styles.formDate}
-                  onChange={(e) => setDeadline(e.target.value)}
                   type="date"
-                 
+                  value={deadline ?? ""}
+                  onChange={(e) => setDeadline(e.target.value)}
                 ></input>
               </div>
             </div>
@@ -106,4 +113,4 @@ let Task = (props) => {
   );
 };
 
-export default Task;
+export default EditModal;

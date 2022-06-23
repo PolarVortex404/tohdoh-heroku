@@ -38,10 +38,14 @@ app.use("/skips", skip);
 //   res.send("hello world");
 // });
 
-app.use(express.static(path.join(__dirname, "./client/build")));
+const buildFolder = process.env.DEV?'../client/build':'./client/build'
+
+console.log(buildFolder)
+
+app.use(express.static(path.join(__dirname, buildFolder)));
 
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+  res.sendFile('index.html');
 });
 
 app.listen(PORT, () => {

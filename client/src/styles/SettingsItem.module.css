@@ -35,7 +35,7 @@
 
 .displayFlex:hover {
   box-shadow: 0 10px 20px -10px rgba(155, 62, 78, 0.089);
-  transform: translateY(-5px);
+  /* transform: translateY(-5px); */
   background-color: #3c787eb6;
   border: 2px solid rgba(0, 0, 0, 0.19);
 }
@@ -43,11 +43,30 @@
 .settingsContainer {
   align-items: center;
 }
-.settingsItemContainer {
-}
+
 .actionItems {
   display: flex;
   align-items: center;
-
+  padding: 15px;
   justify-content: space-around;
 }
+
+.editBtn {
+  cursor: pointer;
+  font-weight: 500;
+  padding: 13px 18px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  border: transparent;
+  color: #0d1b1e;
+  background: #90708ccc;
+  transition: all 0.25s ease;
+  box-shadow: #2c3e50;
+}
+
+.editBtn:hover {
+  box-shadow: 0 10px 20px -10px rgba(255, 62, 78, 0.089);
+  transform: translateY(-5px);
+  background: #90708c;
+}
+

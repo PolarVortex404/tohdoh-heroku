@@ -76,7 +76,10 @@ const GameTime = (props) => {
       {!activeTask && !show && (
         <div>
           <label className={styles.timeLabel}>
-            Time Available <FontAwesomeIcon icon={faHourglass} />
+            Time Available           
+            <FontAwesomeIcon 
+            className={styles.faHourglass}
+            icon={faHourglass} />
           </label>
           <div>
             <input

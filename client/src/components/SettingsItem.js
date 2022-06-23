@@ -1,17 +1,22 @@
 import { React, useState } from "react";
 
 //components
-import DeleteButton from "./buttons/DeleteButton";
 import ReadOnlyStarRating from "./ReadOnlyStarRating";
+import EditModal from "./EditModal";
+//Buttons
+import DeleteButton from "./buttons/DeleteButton";
+// import EditModalButton from "./buttons/EditModalButton";
 
 //styles
 import styles from "../styles/SettingsItem.module.css";
 //icons
 import { faCircleCheck } from "@fortawesome/free-regular-svg-icons";
+import { faPencil } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SettingsItem = (props) => {
   const [bounce, setBounce] = useState(false);
+  const [show, setShow] = useState(false);
 
   return (
     <div className={styles.displayFlex}>
@@ -47,9 +52,20 @@ const SettingsItem = (props) => {
             {props.deleteTask && (
               <DeleteButton task={props.task} deleteTask={props.deleteTask} />
             )}
+            <button className={styles.editBtn} onClick={() => setShow(true)}>
+              <FontAwesomeIcon 
+              icon={faPencil} size="2x" />
+            </button>
           </div>
         </div>
       </div>
+
+      <EditModal
+        task={props.task}
+        updateTask={props.updateTask}
+        onClose={() => setShow(false)}
+        show={show}
+      />
     </div>
   );
 };
