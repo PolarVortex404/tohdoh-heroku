@@ -11,13 +11,8 @@ const Settings = (props) => {
   const { user } = useAuth0();
   return (
     <div className={styles.settingsContainer}>
-      <h1 className={styles.settingsHeader}>Hi, {user.name}! </h1>
       <br />
-      <div>
-        <aside>
-          <article>These are the Goals you've set so far:</article>
-        </aside>
-      </div>
+      <h1 className={styles.settingsHeader}>{user.name}'s Tasks</h1>
       <div className={styles.container}>
         {props.tasks?.map((task, index) => {
           return (

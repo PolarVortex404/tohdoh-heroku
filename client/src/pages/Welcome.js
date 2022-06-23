@@ -7,14 +7,23 @@ const Welcome = () => {
       <h1
       className={styles.welcomeHeader}
       >Howdy! Welcome to TohDoh!</h1>
-      <div>
-        <article
-        className={styles.welcomeArticle}
+      <div className={styles.welcomeDiv}>
+        <span
+        className={styles.welcomeSpan}
         >
-          Traditional To-Do Lists can be tedious and boring. While still totally
-          necessary for regularly scheduled events, but if you've got some downtime, instead of doomscrolling through ig or whatever you <i>could</i> be doing something else. You probably <i>should</i> be doing something else... so uh.. why not?
+        
+          <ul
+                  className={styles.welcomeUL}
+
+          >
+         <li>Create some tasks</li>
+          <br />
+          <li>Enter the amount of time you have available</li>
+          <br />
+          <li>Hit "Go Time" to start or "Create" to start from scratch</li>
+        </ul>
           
-        </article>
+        </span>
       </div>
     </div>
   );
