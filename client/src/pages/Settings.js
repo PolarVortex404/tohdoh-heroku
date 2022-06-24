@@ -8,6 +8,9 @@ import SettingsItem from "../components/SettingsItem";
 import styles from "../styles/Settings.module.css";
 
 const Settings = (props) => {
+  if(!props.updateTask){
+    console.log("words")
+  }
   const { user } = useAuth0();
   return (
     <div className={styles.settingsContainer}>

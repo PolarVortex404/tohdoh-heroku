@@ -52,10 +52,13 @@ const SettingsItem = (props) => {
             {props.deleteTask && (
               <DeleteButton task={props.task} deleteTask={props.deleteTask} />
             )}
+            {props.updateTask &&(
             <button className={styles.editBtn} onClick={() => setShow(true)}>
               <FontAwesomeIcon 
               icon={faPencil} size="2x" />
             </button>
+              
+            )}
           </div>
         </div>
       </div>

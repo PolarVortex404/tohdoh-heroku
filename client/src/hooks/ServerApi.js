@@ -84,8 +84,8 @@ export const ServerApi = () => {
     };
 
     const data = await makeRequest({ config });
-    const updatedTasks = tasks;
-    updatedTasks.push(data);
+    const updatedTasks = await getTasks();
+    // updatedTasks.push(data);
     setTasks(updatedTasks);
   };
 

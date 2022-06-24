@@ -105,11 +105,13 @@ const GameTime = (props) => {
           <div>
             <SettingsItem task={activeTask} />
           </div>
+          
           <button className={styles.createTask} onClick={handleSkip}>
             Skip
           </button>
+      
           <button className={styles.createTask} onClick={handleDone}>
-            Done
+            Complete
           </button>
         </div>
       )}

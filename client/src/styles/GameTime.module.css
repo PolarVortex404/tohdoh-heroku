@@ -9,6 +9,13 @@
   background: #3c787e;
   transition: all 0.25s ease;
   box-shadow: #2c3e50;
+
+  margin-left: 10px;
+  /* padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px; */
+  
 }
 
 .createTask:hover {

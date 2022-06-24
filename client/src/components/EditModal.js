@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styles from "../styles/Task.module.css";
 import StarRating from "./StarRating";
-import EditModalButton from "./buttons/EditModalButton";
 
 let EditModal = (props) => {
   const [title, setTitle] = useState(props.task.title);
@@ -14,7 +13,7 @@ let EditModal = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("editing task");
+    // console.log("editing task");
 
     const task = props.task;
     task.title = title;
@@ -23,13 +22,9 @@ let EditModal = (props) => {
     task.star_rating = difficulty;
     task.deadline = deadline;
 
-    console.log("calling update");
-
     props.updateTask(task);
-
     props.onClose();
   };
-
   if (!props.show) {
     return null;
   }
